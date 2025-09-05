@@ -4,9 +4,9 @@ import numpy as np
 from utils import parse_language_codes, filter_by_language_code
 
 def retrieve(query: str, index, model, meta_df, k=5):
-    """
-    Retrieves the top-k most relevant hits for a given query.
-    """
+    
+    #Retrieves the top-k most relevant hits for a given query.
+    
     q_emb = model.encode([query], normalize_embeddings=True).astype("float32")
     D, I = index.search(q_emb, k)
     hits = meta_df.iloc[I[0]].copy()
@@ -14,9 +14,9 @@ def retrieve(query: str, index, model, meta_df, k=5):
     return hits
 
 def answer_from_hits(hits_df: pd.DataFrame, raw_df: pd.DataFrame, user_query: str):
-    """
-    Return multiple matching courses (top-k).
-    """
+    
+    #Return multiple matching courses (top-k).
+    
     if hits_df.empty:
         return {"Error": ["I couldn’t find a relevant course in the provided dataset."]}
 
@@ -39,9 +39,9 @@ def answer_from_hits(hits_df: pd.DataFrame, raw_df: pd.DataFrame, user_query: st
     return results  # return list instead of single dict
 
 def list_courses_in_language(raw_df: pd.DataFrame, lang_code: int):
-    """
-    Lists all courses available in a given language.
-    """
+    
+    #Lists all courses available in a given language.
+    
     sub = filter_by_language_code(raw_df, lang_code)
     if sub.empty:
         return "No courses found for that language in the dataset."
@@ -51,3 +51,4 @@ def list_courses_in_language(raw_df: pd.DataFrame, lang_code: int):
         lines.append(f"- {r['Course Title']}")
     
     return "\n".join(lines)
+
