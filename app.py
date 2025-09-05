@@ -9,9 +9,9 @@ from rag import retrieve, answer_from_hits, list_courses_in_language
 from utils import LANG_MAP
 from map import search_places  # ✅ external tool
 
-# ------------------------------
+
 # Script detection (for languages)
-# ------------------------------
+
 def is_malayalam(text):
     return bool(re.search(r'[\u0D00-\u0D7F]', text))
 
@@ -28,9 +28,9 @@ def is_tamil(text):
     return bool(re.search(r'[\u0B80-\u0BFF]', text))
 
 
-# ------------------------------
-# 🔥 Language Translation Helper
-# ------------------------------
+
+#  Language Translation Helper
+
 def translate_answer(answer: str, user_query: str) -> str:
     target_lang = "en"
     if is_hindi(user_query):
@@ -54,9 +54,9 @@ def translate_answer(answer: str, user_query: str) -> str:
         return answer
 
 
-# ------------------------------
+
 # Load Dataset + Index
-# ------------------------------
+
 DATA_PATH = r"boss_wallah_rag_bot.csv"
 
 st.set_page_config(page_title="Boss Wallah RAG Support Bot", page_icon="🧱", layout="wide")
@@ -74,9 +74,9 @@ raw_df, meta_df, index, model = load_everything()
 
 
 
-# ------------------------------
+
 # Dataset Answer
-# ------------------------------
+
 def dataset_only_answer(user_query: str):
     lower = user_query.lower()
     lang_hit = None
@@ -141,9 +141,9 @@ def dataset_or_bonus_answer(user_query: str):
     return dataset_only_answer(user_query)
 
 
-# ------------------------------
+
 # Router: Decide Dataset or Maps
-# ------------------------------
+
 def route_query(user_query: str):
     outside_keywords = ["store", "shop", "temple", "hospital", "university",
                         "college", "market", "restaurant", "mall", "hotel"]
@@ -152,9 +152,9 @@ def route_query(user_query: str):
     return "dataset"
 
 
-# ------------------------------
+
 # Display Answer
-# ------------------------------
+
 def display_answer(answer):
     if isinstance(answer, dict) or isinstance(answer, list):
         df = pd.DataFrame(answer)
@@ -168,11 +168,11 @@ def display_answer(answer):
         st.write(answer)
 
 
-# ------------------------------
+
 # Main Query Handling
-# ------------------------------
+
 query = st.text_input("Ask about Boss Wallah courses or local info:",
-                      placeholder="e.g., Tell me about honey bee farming course OR papaya seeds store in Coimbatore")
+                      placeholder="e.g., Tell me about honey bee farming course OR papaya seeds store in bangalore")
 go = st.button("Ask")
 
 if go and query.strip():
@@ -188,4 +188,5 @@ if go and query.strip():
             st.table(results)
         else:
             st.write(results)
+
 
