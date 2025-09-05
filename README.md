@@ -15,6 +15,17 @@ This project is a **Retrieval-Augmented Generation (RAG) chatbot** built using S
 ---
 
 ## **Project Structure**
+rag_chatbot/
+├── app.py # Main Streamlit app
+├── README.md # Project documentation
+├── requirements.txt # Project dependencies
+├── data/
+│ └── boss_wallah_rag_bot.csv # Dataset CSV
+└── src/
+├── indexer.py # Dataset loading and FAISS index creation
+├── map.py # Google Maps API integration
+├── rag.py # Retrieval and answer generation
+└── utils.py # Language helpers, translation, dataset utilities
 ## Installation
 
 1. Clone the Repository
@@ -66,5 +77,6 @@ This project is a **Retrieval-Augmented Generation (RAG) chatbot** built using S
 6.deep-translator – for multi-language translation
 
 7.requests – Google Maps API integration
+
 
 
