@@ -1,0 +1,12 @@
+streamlit
+pandas
+faiss-cpu
+sentence-transformers
+langdetect
+pydantic
+requests
+python-dotenv
+deep-translator
+
+
+
