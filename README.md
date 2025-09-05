@@ -31,7 +31,7 @@ This project is a **Retrieval-Augmented Generation (RAG) chatbot** built using S
    ```
    pip install -r requirements.txt
    ```
-4. Set Geocoding API Key
+4. Add your Google Maps API key in map.py:
    ```
    API_KEY=your_api_key
    ```
@@ -41,13 +41,30 @@ This project is a **Retrieval-Augmented Generation (RAG) chatbot** built using S
    ```
 
 ## How It Works
-- 
+1.Language Detection: Detects query language (Hindi, Kannada, Tamil, Telugu, Malayalam).
+
+2.Dataset Retrieval: Uses FAISS + SentenceTransformer embeddings to retrieve top-k relevant courses.
+
+3.Answer Generation: Converts retrieved data into readable answers.
+
+4.Translation: Translates answers into the user’s query language.
+
+5.Maps Queries: Detects if the query is about stores/places and fetches results from Google Maps API.
+
 
 ## Tech Stack
-- Python
-- LangChain + OpenAI (GPT-3.5)
-- FAISS (Vector Search)
-- Streamlit (UI)
-- PyMuPDF, python-docx, python-pptx, pandas (for document parsing)
+1.Python 
+
+2.Streamlit – for building the web app interface
+
+3.pandas  – data handling
+
+4.FAISS – fast vector-based retrieval
+
+5.SentenceTransformers – embeddings for semantic search
+
+6.deep-translator – for multi-language translation
+
+7.requests – Google Maps API integration
 
 
