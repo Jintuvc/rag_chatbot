@@ -71,11 +71,7 @@ def load_everything():
 raw_df, meta_df, index, model = load_everything()
 
 
-# ------------------------------
-# Sidebar
-# ------------------------------
-st.sidebar.header("Quick Actions")
-st.sidebar.text("Use the buttons below to quickly test queries.")
+
 
 
 # ------------------------------
@@ -192,3 +188,4 @@ if go and query.strip():
             st.table(results)
         else:
             st.write(results)
+
