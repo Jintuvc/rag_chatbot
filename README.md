@@ -20,12 +20,12 @@ rag_chatbot/
 ├── README.md
 ├── requirements.txt
 ├── data/
-│   └── boss_wallah_rag_bot.csv
+│ └── boss_wallah_rag_bot.csv
 └── src/
-    ├── indexer.py
-    ├── map.py
-    ├── rag.py
-    └── utils.py
+├── indexer.py
+├── map.py
+├── rag.py
+└── utils.py
 
 ## Installation
 
@@ -78,6 +78,7 @@ rag_chatbot/
 6.deep-translator – for multi-language translation
 
 7.requests – Google Maps API integration
+
 
 
 
