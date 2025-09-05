@@ -2,7 +2,7 @@
 import requests
 import os
 
-GOOGLE_API_KEY = "AIzaSyAsSsYV9W427vkLCc9nPIeePESAmdKwF7E"
+GOOGLE_API_KEY = "key"
 BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json"
 
 def search_places(query, location="India"):
@@ -23,3 +23,4 @@ def search_places(query, location="India"):
         return places
     else:
         return {"Error": "No results found"}
+
