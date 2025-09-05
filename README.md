@@ -1,6 +1,6 @@
 # Boss Wallah – Course Support Chatbot 
 
-This project is a **Retrieval-Augmented Generation (RAG) chatbot** built using Streamlit that can answer questions about Boss Wallah courses and provide local information via Google Maps. It supports **multi-language queries** and has special rules for certain topics (e.g., dairy farm queries).
+This project is a **Retrieval-Augmented Generation (RAG) chatbot** built using Streamlit that can answer questions about Boss Wallah courses and provide local information via Google Maps. It supports **multi-language queries** 
 
 ---
 
@@ -14,18 +14,6 @@ This project is a **Retrieval-Augmented Generation (RAG) chatbot** built using S
 
 ---
 
-## **Project Structure**
-rag_chatbot/
-├── app.py
-├── README.md
-├── requirements.txt
-├── data/
-│ └── boss_wallah_rag_bot.csv
-└── src/
-├── indexer.py
-├── map.py
-├── rag.py
-└── utils.py
 
 ## Installation
 
@@ -78,6 +66,7 @@ rag_chatbot/
 6.deep-translator – for multi-language translation
 
 7.requests – Google Maps API integration
+
 
 
 
