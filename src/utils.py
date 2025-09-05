@@ -1,9 +1,9 @@
 import re
 from deep_translator import GoogleTranslator
 
-# ------------------------------
+
 # Language Maps
-# ------------------------------
+
 LANG_MAP = {
     6: "Hindi",
     7: "Kannada",
@@ -23,9 +23,8 @@ LANG_CODE_MAP = {
 }
 
 
-# ------------------------------
 # Script Detection (Regex ranges)
-# ------------------------------
+
 def is_malayalam(text: str) -> bool:
     return bool(re.search(r'[\u0D00-\u0D7F]', text))
 
@@ -42,14 +41,11 @@ def is_tamil(text: str) -> bool:
     return bool(re.search(r'[\u0B80-\u0BFF]', text))
 
 
-# ------------------------------
+
 # Dataset Helpers
-# ------------------------------
+
 def parse_language_codes(codes_str: str):
-    """
-    Dataset has comma-separated codes like "24,20".
-    Returns list of readable language names.
-    """
+   
     try:
         codes = [int(c.strip()) for c in str(codes_str).split(",") if c.strip()]
     except:
@@ -58,20 +54,17 @@ def parse_language_codes(codes_str: str):
 
 
 def filter_by_language_code(df, code):
-    """
-    Filter dataset by released language code.
-    Uses 'Released Languages' column.
-    """
+    
     return df[df["Released Languages"].astype(str).str.contains(rf"\b{code}\b", case=False, na=False)]
 
 
-# ------------------------------
+
 # Translation Helper
-# ------------------------------
+
 def translate_answer(answer: str, user_query: str) -> str:
-    """
-    Detect query language → translate answer into that language.
-    """
+   
+    #Detect query language → translate answer into that language.
+    
     target_lang = "en"
 
     if is_hindi(user_query):
@@ -93,3 +86,4 @@ def translate_answer(answer: str, user_query: str) -> str:
     except Exception as e:
         print(f"Translation failed: {e}")
         return answer
+
